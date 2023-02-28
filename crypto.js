@@ -47,7 +47,7 @@ async function copyEncryptedFun() {
 /** 清空数据函数*/
 async function clearAllFun() {
     decryptedData.value='';
-    pass.value='';
+    // pass.value='';
     encryptedData.value='';
 }
 
