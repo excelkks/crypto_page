@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="crypto.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css"></style>
+        <meta name="viewport" content="width=deivce-width, initial-scale=1">
+    </head>
+
+    <body>
+        <div class="text-center">
+        <div>
+            <label for="decryptedData">原文:</label>
+            <!-- <input type="text" id="decryptedData"> -->
+            <textarea id="decryptedData" placeholder="原文" > </textarea>
+
+            <button id="copyDecrypted">复制</button>
+        </div>
+        <div>
+            <label for="encryptedData">密文:</label>
+            <!-- <input type="text" id="encryptedData"> -->
+            <textarea id="encryptedData" placeholder="密文" > </textarea>
+            <button id="copyEncrypted">复制</button>
+        </div>
+        <div>
+            <label for="pass">密钥:</label>
+            <input type="password" id="pass">
+        </div>
+        </div>
+
+        <div class="text-center">
+            <button id="encryptBtn"> 加密 </button>
+            <button id="decryptBtn"> 解密 </button>
+        </div>
+
+        <script>
+            document.getElementById('copyDecrypted').addEventListener('click', copyDecrypted);
+            document.getElementById('copyEncrypted').addEventListener('click', copyEncrypted);
+            async function copyDecrypted() {
+                let text = document.querySelector('#decryptedData').value;
+                await navigator.clipboard.writeText(text);
+            }
+            async function copyEncrypted() {
+                let text = document.querySelector('#encryptedData').value;
+                await navigator.clipboard.writeText(text);
+            }
+            // document.getElementById('clipboardPaste').addEventListener('click', clipboardPaste);
+            // async function clipboardPaste() {
+            //     navigator.clipboard.readText().then(
+            //         clipText => {
+            //             document.querySelector("#decryptedData").value = clipText
+            //         }
+            //     );;
+            // }
+        </script>
+
+        <script>
+            document.getElementById('encryptBtn').addEventListener('click', handleEncryptClick);
+            document.getElementById('decryptBtn').addEventListener('click', handleDecryptClick);
+        </script>
+</body>
+    </body>
+</html>
