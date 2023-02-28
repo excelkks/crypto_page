@@ -1,62 +1,49 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="crypto.js"></script>
-        <link rel="stylesheet" type="text/css" href="style.css"></style>
         <meta name="viewport" content="width=deivce-width, initial-scale=1">
+        <!-- 标签页标题 -->
+        <title>加解密工具</title>
+        <!-- 引入css样式 -->
+        <link rel="stylesheet" type="text/css" href="./main.css">
+        <!-- 引入js样式 -->
     </head>
 
     <body>
+        <!-- 页面内容 -->
         <div class="text-center">
-        <div>
-            <label for="decryptedData">原文:</label>
-            <!-- <input type="text" id="decryptedData"> -->
-            <textarea id="decryptedData" placeholder="原文" > </textarea>
-
-            <button id="copyDecrypted">复制</button>
+            <!-- 标题内容导航栏 -->
+            <div class="header"> 
+                <h1 class="title content">文本加解密工具</h1>
+            </div>
+            <!-- 内容主体 -->
+            <div class="main content">
+                <ul class="select-item">
+                    <li class="item">加密&nbsp;/&nbsp;解密</li>
+                </ul>
+                <!-- 原文 -->
+                <textarea id="decryptedData" placeholder="原文" ></textarea>
+                <!-- 操作内容 -->
+                <div class="opt">
+                    <div class="main-opt">
+                        <input type="password" id="pass" placeholder="密匙,可不填">
+                        <button class="btn btn-success" id="encryptBtn">加密</button>
+                        <button class="btn btn-success" id="decryptBtn">解密</button>
+                    </div>
+                    <div class="copy-opt">
+                        <button class="btn btn-default" id="copyDecrypted">复制原文</button>
+                        <button class="btn btn-default" id="copyEncrypted">复制密文</button>
+                        <button class="btn btn-clear" id="clearAll">清空</button>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="ciphertext">
+                <textarea id="encryptedData" placeholder="密文" ></textarea>
+                    <!-- <pre><code id="encryptedData"></code></pre> -->
+                </div>
+            </div>
         </div>
-        <div>
-            <label for="encryptedData">密文:</label>
-            <!-- <input type="text" id="encryptedData"> -->
-            <textarea id="encryptedData" placeholder="密文" > </textarea>
-            <button id="copyEncrypted">复制</button>
-        </div>
-        <div>
-            <label for="pass">密钥:</label>
-            <input type="password" id="pass">
-        </div>
-        </div>
-
-        <div class="text-center">
-            <button id="encryptBtn"> 加密 </button>
-            <button id="decryptBtn"> 解密 </button>
-        </div>
-
-        <script>
-            document.getElementById('copyDecrypted').addEventListener('click', copyDecrypted);
-            document.getElementById('copyEncrypted').addEventListener('click', copyEncrypted);
-            async function copyDecrypted() {
-                let text = document.querySelector('#decryptedData').value;
-                await navigator.clipboard.writeText(text);
-            }
-            async function copyEncrypted() {
-                let text = document.querySelector('#encryptedData').value;
-                await navigator.clipboard.writeText(text);
-            }
-            // document.getElementById('clipboardPaste').addEventListener('click', clipboardPaste);
-            // async function clipboardPaste() {
-            //     navigator.clipboard.readText().then(
-            //         clipText => {
-            //             document.querySelector("#decryptedData").value = clipText
-            //         }
-            //     );;
-            // }
-        </script>
-
-        <script>
-            document.getElementById('encryptBtn').addEventListener('click', handleEncryptClick);
-            document.getElementById('decryptBtn').addEventListener('click', handleDecryptClick);
-        </script>
-</body>
+        <!-- 交互逻辑操作 -->
+        <script src="./crypto.js"></script>
     </body>
 </html>
